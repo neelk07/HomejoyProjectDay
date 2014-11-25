@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVZD22TtmTf6jGkIDXrHlNqHWsPZ0uMac">
+    </script>
+    <script type="text/javascript">
+      <!--
+      function searchAddress() {
+      var address = document.url2go.go.value
+      var newURL = "http://localhost:8000/address/"+address
+      document.location.href=newURL
+      }
+      //-->
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          zoom: 10,
+          center: new google.maps.LatLng(37.79296799999999,-122.40414), 
+          mapTypeId: google.maps.MapTypeId.TERRAIN
+        };
+
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+    <form action="javaScript:searchAddress()" method="get" name="url2go">
+      <input type="text" name="go" value="" size="50">
+      <input type="submit" value="Go!">
+    </form>
+    <div id="map-canvas"></div>
+  </body>
+</html>
